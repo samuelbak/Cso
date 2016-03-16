@@ -1,5 +1,7 @@
 package src;
 
+import src.NodeStructure;
+
 public class Nodo {
 	
 	public Integer nodeId;
