@@ -9,6 +9,6 @@ public class main {
 		for (int i=0;i<numberOfNodes;i++){
 			nodi[i] = new Nodo(i, numberOfNodes);
 		}
-		System.out.println("");
+		System.out.println("ciao");
 	}
 }
