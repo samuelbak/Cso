@@ -7,8 +7,11 @@ public class main {
 		Integer numberOfNodes = rnd.nextInt(15)+5;
 		Nodo[] nodi = new Nodo[numberOfNodes];
 		for (int i=0;i<numberOfNodes;i++){
-			nodi[i] = new Nodo(i, numberOfNodes);
+			nodi[i] = new Nodo(i+1, numberOfNodes);
 		}
-		System.out.println("ciao");
+		System.out.println("Creati "+numberOfNodes.toString()+" nodi");
+		for (int i=0;i<numberOfNodes;i++){
+			System.out.println(nodi[i].toString());
+		}
 	}
 }

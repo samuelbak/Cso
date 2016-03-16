@@ -27,5 +27,11 @@ public class Nodo {
 		}
 		return 0;
 	}
+	
+	@Override
+	public String toString(){
+		String obj = "[nodeId: "+this.nodeId+"]";
+		return obj;
+	}
 
 }
