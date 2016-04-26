@@ -56,6 +56,6 @@ public class Main {
 		nodi[6].addNodeConnection(2, 5);
 		nodi[6].addNodeConnection(5, 1);
 		
-		Dijksrta solver = new Dijksrta(0,6,nodi);
+		System.out.println(Dijksrta.solver(0,6,nodi));
 	}
 }
