@@ -3,13 +3,13 @@ package src;
 import java.util.List;
 import util.Connection;
 
-public class Dijksrta extends Thread {
+public class Dijksrta{
 	
-	public  static String solver(Integer startNode, Integer endNode, Nodo[] graph){
+	public String solver(Integer startNode, Integer endNode, Nodo[] graph){
 		Integer currentNode = startNode;
 		Integer nextNodePotential = Integer.MAX_VALUE;
 		Integer nextNode = 0;
-		String solution ="";
+		String solution = String.valueOf(startNode)+" -> ";
 		
 		graph[currentNode].potential=0;
 		
@@ -38,7 +38,7 @@ public class Dijksrta extends Thread {
 				break;
 				
 		}
-		
+		solution = solution.substring(0, solution.length()-4);
 		return solution;
 	}
 

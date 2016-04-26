@@ -1,7 +1,4 @@
 package src;
-import java.util.Random;
-
-import gui.Graph;
 
 /*
 Thread e Processi - Si realizzi, a grandi linee, un simulatore per un sistema di ricerca del tragitto più 
@@ -15,23 +12,11 @@ costo uguale, il treno (thread) può scegliere indifferentemente uno o l´altro pe
 public class Main {
 
 	public static void main(String[] args) {
-		/*Random rnd = new Random();
-		Integer numberOfNodes = rnd.nextInt(15)+5;
-		Nodo[] nodi = new Nodo[numberOfNodes];
-		for (int i=0;i<numberOfNodes;i++){
-			nodi[i] = new Nodo(i, numberOfNodes);
-		}
-		System.out.println("Creati "+numberOfNodes.toString()+" nodi");
-		for (int i=0;i<numberOfNodes;i++){
-			System.out.println(nodi[i].toString());
-		}
-		Graph frame = new Graph();
-		frame.setVisible(true);
-		*/
-		Nodo[] nodi = new Nodo[8];
+
+		Nodo[] nodi = new Nodo[7];
 
 		for (int j = 0; j < nodi.length; j++) {
-			nodi[j] = new Nodo(j,8);
+			nodi[j] = new Nodo(j);
 		}
 		for (Nodo a: nodi){
 			System.out.println(a.toString());
@@ -44,7 +29,7 @@ public class Main {
 		nodi[1].addNodeConnection(3, 2);
 		nodi[2].addNodeConnection(1, 6);
 		nodi[2].addNodeConnection(6, 5);
-		nodi[2].addNodeConnection(7, 1);	//
+		//nodi[2].addNodeConnection(7, 1);	//
 		nodi[3].addNodeConnection(1, 2);
 		nodi[3].addNodeConnection(5, 9);
 		nodi[3].addNodeConnection(4, 2);
@@ -57,6 +42,11 @@ public class Main {
 		nodi[6].addNodeConnection(2, 5);
 		nodi[6].addNodeConnection(5, 1);
 		
-		System.out.println(Dijksrta.solver(0,7,nodi));
+		Train treno1 = new Train(1,6,nodi);
+		Train treno2 = new Train(5,1,nodi);
+		Train treno3 = new Train(2,6,nodi);
+		treno1.run();
+		treno2.run();
+		treno3.run();
 	}
 }

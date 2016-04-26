@@ -1,14 +1,22 @@
 package util;
 
 import java.util.Random;
+import src.Nodo;
 
 public class Graph {
 	
-	public Integer numberOfNodes;
-	
 	public Graph(){
+		
+	}
+	
+	public static Nodo[] createRandomNodes(Integer limit){
 		Random rnd = new Random();
-		numberOfNodes = rnd.nextInt(15)+5;
+		Integer numberOfNodes = rnd.nextInt(limit);
+		Nodo[] nodi = new Nodo[numberOfNodes];
+		for (int j = 0; j < nodi.length; j++) {
+			nodi[j] = new Nodo(j++);
+		}
+		return nodi;
 	}
 
 }

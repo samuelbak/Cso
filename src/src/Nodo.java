@@ -11,7 +11,7 @@ public class Nodo {
 	public Boolean definitive;
 	public List<Connection> connectionsList;
 	
-	public Nodo(Integer nodeId, Integer numberOfNodes){
+	public Nodo(Integer nodeId){
 		this.nodeId = nodeId;
 		this.connectionsList = new ArrayList<Connection>();
 		this.potential = Integer.MAX_VALUE;
@@ -33,8 +33,15 @@ public class Nodo {
 		}
 		return -1;
 	}
-	
-	
+	@Override
+	public Nodo clone(){
+		Nodo ret = new Nodo(this.nodeId);
+		ret.potential = this.potential;
+		ret.definitive = this.definitive;
+		ret.connectionsList = this.connectionsList; 
+		return ret;
+		
+	}
 	@Override
 	public String toString(){
 		String obj = "[nodeId: "+this.nodeId+"]";
