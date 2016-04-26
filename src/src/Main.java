@@ -28,10 +28,10 @@ public class Main {
 		Graph frame = new Graph();
 		frame.setVisible(true);
 		*/
-		Nodo[] nodi = new Nodo[7];
+		Nodo[] nodi = new Nodo[8];
 
 		for (int j = 0; j < nodi.length; j++) {
-			nodi[j] = new Nodo(j,7);
+			nodi[j] = new Nodo(j,8);
 		}
 		for (Nodo a: nodi){
 			System.out.println(a.toString());
@@ -44,6 +44,7 @@ public class Main {
 		nodi[1].addNodeConnection(3, 2);
 		nodi[2].addNodeConnection(1, 6);
 		nodi[2].addNodeConnection(6, 5);
+		nodi[2].addNodeConnection(7, 1);	//
 		nodi[3].addNodeConnection(1, 2);
 		nodi[3].addNodeConnection(5, 9);
 		nodi[3].addNodeConnection(4, 2);
@@ -56,6 +57,6 @@ public class Main {
 		nodi[6].addNodeConnection(2, 5);
 		nodi[6].addNodeConnection(5, 1);
 		
-		System.out.println(Dijksrta.solver(0,6,nodi));
+		System.out.println(Dijksrta.solver(0,7,nodi));
 	}
 }
