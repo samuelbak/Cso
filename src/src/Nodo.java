@@ -30,7 +30,9 @@ public class Nodo {
 	
 	@Override
 	public String toString(){
-		String obj = "[nodeId: "+this.nodeId+"]";
+		int a = 'A'+this.nodeId;
+		char id = (char)a;
+		String obj = "[nodeId: "+id+"]";
 		return obj;
 	}
 
