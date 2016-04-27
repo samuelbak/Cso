@@ -1,5 +1,6 @@
 package src;
 
+import java.util.ArrayList;
 import java.util.List;
 import util.Connection;
 
@@ -60,6 +61,19 @@ public class Dijkstra{
 		}
 		
 		return solution.substring(4, solution.length());
+	}
+	
+	public String solver2(Integer startNode, Integer endNode){
+		List<Nodo> q = new ArrayList<Nodo>();
+		Integer currentNode = startNode;
+		graph[currentNode].potential = 0;
+				
+		for(Nodo nodo: graph)
+			q.add(nodo);
+		while(!q.isEmpty()){
+			q.get(currentNode);
+		}
+		return "";
 	}
 	
 	public void resetShortestPathTree(){

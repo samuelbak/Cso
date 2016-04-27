@@ -45,8 +45,8 @@ public class Main {
 		Train treno1 = new Train(0,6,nodi);
 		Train treno2 = new Train(5,1,nodi);
 		Train treno3 = new Train(2,6,nodi);
-		treno1.run();
+		//treno1.run();
 		treno2.run();
-		treno3.run();
+		//treno3.run();
 	}
 }
