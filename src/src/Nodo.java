@@ -8,6 +8,7 @@ public class Nodo {
 	
 	public Integer nodeId;
 	public Integer potential;
+	public Integer precNode;
 	public Boolean definitive;
 	public List<Connection> connectionsList;
 	

@@ -40,7 +40,6 @@ public class Dijkstra{
 			}	
 			currentNode = nextNode;
 			nextNodePotential = Integer.MAX_VALUE;
-			//solution = solution+currentNode+" -> ";
 			if (areAllNodesDefinitive())
 				break;		
 		}
@@ -64,14 +63,21 @@ public class Dijkstra{
 	}
 	
 	public String solver2(Integer startNode, Integer endNode){
-		List<Nodo> q = new ArrayList<Nodo>();
+		//Inizializzazione
 		Integer currentNode = startNode;
-		graph[currentNode].potential = 0;
-				
-		for(Nodo nodo: graph)
-			q.add(nodo);
-		while(!q.isEmpty()){
-			q.get(currentNode);
+		graph[startNode].definitive = true;					//S={1}
+		graph[startNode].potential = 0;						//f(1)=0
+		graph[startNode].precNode = 0;						//J(1)=0
+		List<Connection> conList = graph[startNode].connectionsList;
+		for(Connection con: conList){
+			graph[con.toNodeId].potential = con.weigth;		// f(i)=p(1,i)
+			graph[con.toNodeId].precNode = startNode;		//J(i)=1
+		}
+		//Assegnazione etichetta permanente
+		conList = graph[currentNode].connectionsList;
+		Integer nextNode = conList.get(0).toNodeId;
+		for(Connection con: conList){
+			if(graph[nextNode].potential < )
 		}
 		return "";
 	}
