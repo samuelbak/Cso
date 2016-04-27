@@ -42,7 +42,7 @@ public class Main {
 		nodi[6].addNodeConnection(2, 5);
 		nodi[6].addNodeConnection(5, 1);
 		
-		Train treno1 = new Train(1,6,nodi);
+		Train treno1 = new Train(0,6,nodi);
 		Train treno2 = new Train(5,1,nodi);
 		Train treno3 = new Train(2,6,nodi);
 		treno1.run();

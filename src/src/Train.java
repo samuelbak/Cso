@@ -15,7 +15,7 @@ public class Train extends Thread {
 	}	
 	
 	public void run(){
-		Dijksrta alg = new Dijksrta();
-		System.out.println(alg.solver(start, end, graph));
+		Dijkstra alg = new Dijkstra(graph);
+		System.out.println(alg.solver(start, end));
 	}
 }
