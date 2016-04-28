@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import util.Connection;
 
-public class Dijkstra{
+public class ShortestPath{
 	
 	private Nodo[] graph;
 	
-	public Dijkstra(Nodo[] graph){
+	public ShortestPath(Nodo[] graph){
 		this.graph = graph;
 	}
 	
-	public String solver(Integer startNode, Integer endNode){
+	public String dijkstra(Integer startNode, Integer endNode){
 		Integer currentNode = startNode;
 		Integer nextNodePotential = Integer.MAX_VALUE;
 		Integer nextNode = 0;
@@ -62,7 +62,7 @@ public class Dijkstra{
 		return solution.substring(4, solution.length());
 	}
 	
-	public String solver2(Integer startNode, Integer endNode){
+	public String dijkstra2(Integer startNode, Integer endNode){
 		//Inizializzazione
 		Integer currentNode = startNode;
 		graph[startNode].definitive = true;					//S={1}
