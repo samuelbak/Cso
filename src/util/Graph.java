@@ -11,6 +11,7 @@ public class Graph {
 	
 	public static Nodo[] createRandomNodes(Integer limit){
 		Random rnd = new Random();
+		int i = 0;
 		Integer numberOfNodes = rnd.nextInt(limit);
 		Nodo[] nodi = new Nodo[numberOfNodes];
 		for (int j = 0; j < nodi.length; j++) {
