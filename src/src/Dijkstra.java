@@ -74,12 +74,38 @@ public class Dijkstra{
 			graph[con.toNodeId].precNode = startNode;		//J(i)=1
 		}
 		//Assegnazione etichetta permanente
-		conList = graph[currentNode].connectionsList;
-		Integer nextNode = conList.get(0).toNodeId;
-		for(Connection con: conList){
-			if(graph[nextNode].potential < )
+		while(2>1){
+			conList = graph[currentNode].connectionsList;
+			Integer nextNode = conList.get(0).toNodeId;
+			Integer nextNodePotential = Integer.MAX_VALUE;
+			for(Connection con: conList){					//Troviamo j in T tale che f(j)=min f(i) con i appartenente a T
+				if((graph[con.toNodeId].potential < nextNodePotential) && !graph[con.toNodeId].definitive){
+					nextNode = con.toNodeId;
+					nextNodePotential = graph[con.toNodeId].potential;	
+				}
+			}
+			graph[nextNode].definitive = true;				//T=T\{j} e S=S∪{j}
+			if (areAllNodesDefinitive())					//Se T=Ø STOP
+				break;
+			if (nextNodePotential == Integer.MAX_VALUE)		//Se f(i)= ∞ per ogni i in T STOP
+				break;
+			conList = graph[nextNode].connectionsList;	//Per ogni i in T, adiacente a j e tale che f(i)>f(j)+p(j,i)
+			for(Connection con: conList){
+				if((graph[con.toNodeId].potential > (graph[nextNode].potential+con.weigth) && !graph[con.toNodeId].definitive)){
+					graph[con.toNodeId].potential = graph[nextNode].potential+con.weigth;	//f(i)=f(j)+p(j,i)
+					graph[con.toNodeId].precNode = nextNode;								//J(i)=j
+				}
+			}
+			currentNode = nextNode;
+			nextNodePotential = Integer.MAX_VALUE;
 		}
-		return "";
+		String solution = " -> "+endNode;
+		currentNode = endNode;
+		while (graph[currentNode].precNode != 0){
+			solution = " -> " + graph[currentNode].precNode + solution;
+			currentNode = graph[currentNode].precNode;
+		}
+		return solution.substring(4,solution.length());
 	}
 	
 	public void resetShortestPathTree(){
