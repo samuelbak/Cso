@@ -1,12 +1,12 @@
 package src;
 
+import java.util.ArrayList;
 import java.util.List;
-import util.Connection;
 
+import util.Connection;
 public class ShortestPath{
 	
 	private Nodo[] graph;
-	private Integer[][] dijkstraTable;
 	
 	public ShortestPath(Nodo[] graph){
 		this.graph = graph;
