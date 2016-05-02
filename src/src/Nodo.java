@@ -45,7 +45,7 @@ public class Nodo {
 	}
 	@Override
 	public String toString(){
-		String obj = "[nodeId: "+this.nodeId+", Potential: "+this.potential+", Definitife: "+this.definitive+"]";
+		String obj = "[nodeId: "+this.nodeId+", Potential: "+this.potential+", Definitive: "+this.definitive+"]";
 		return obj;
 	}
 

@@ -1,12 +1,13 @@
 package src;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import util.Connection;
+
 public class ShortestPath{
 	
 	private Nodo[] graph;
+	private Integer[][] dijkstraTable;
 	
 	public ShortestPath(Nodo[] graph){
 		this.graph = graph;
@@ -108,6 +109,43 @@ public class ShortestPath{
 		return solution.substring(4,solution.length());
 	}
 	
+	public String dijkstra3(Integer startNode, Integer endNode){
+		dijkstraTable = new Integer[graph.length][3];
+		for(int i=0;i<graph.length;i++){
+			dijkstraTable[i][0] = Integer.MAX_VALUE;		//peso
+			dijkstraTable[i][1] = 0;						//non visitato
+		}
+		
+		Integer currentNode = startNode;
+		Integer previousNode = startNode;
+		dijkstraTable[currentNode][0] = 0;					//Inizializzazione nodo di partenza
+		dijkstraTable[currentNode][1] = 1;
+		dijkstraTable[currentNode][2] = 0;
+		while(2>1){
+			//Calcolo percorsi nodi vicini
+			List<Connection> conList = graph[currentNode].connectionsList;
+			for(Connection con: conList){
+				dijkstraTable[con.toNodeId][0] = con.weigth + dijkstraTable[currentNode][0];
+			}
+			//nodo con peso minore
+			Integer lighterNodeId = conList.get(0).toNodeId;
+			Integer ligtherNodeWeigth = conList.get(0).weigth;
+			for (Connection con: conList){
+				if((dijkstraTable[con.toNodeId][0] < ligtherNodeWeigth) && dijkstraTable[con.toNodeId][1] == 0){
+					lighterNodeId = con.toNodeId;
+					ligtherNodeWeigth = dijkstraTable[con.toNodeId][0];
+				}
+			}
+			dijkstraTable[currentNode][1] = 1;
+			dijkstraTable[currentNode][2] = previousNode;
+			if (areAllNodesDefinitive())
+				break;
+			
+		}
+		
+		return "";
+	}
+	
 	public void resetShortestPathTree(){
 		for(Nodo nodo: graph){
 			nodo.definitive = false;
@@ -116,8 +154,15 @@ public class ShortestPath{
 	}
 	
 	private boolean areAllNodesDefinitive(){
+		/*
 		for(Nodo nodo: graph){
 			if (nodo.definitive == false)
+				return false;
+		}
+		return true;
+		*/
+		for(int i=0; i<graph.length; i++){
+			if(dijkstraTable[i][1] == 0)
 				return false;
 		}
 		return true;
