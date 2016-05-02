@@ -1,6 +1,6 @@
 package src;
 
-public class Train extends Thread {
+public class Train implements Runnable {
 
 	private Integer start;
 	private Integer end;

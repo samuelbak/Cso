@@ -6,6 +6,7 @@ import util.Connection;
 public class ShortestPath{
 	
 	private Nodo[] graph;
+	private Integer[][] dijkstraTable;
 	
 	public ShortestPath(Nodo[] graph){
 		this.graph = graph;
