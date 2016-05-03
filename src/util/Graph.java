@@ -41,6 +41,7 @@ public class Graph {
 					if (matrix[i][random] == null){
 						matrix[i][random] = rnd.nextInt(9)+1;
 						break;
+
 					}
 				}
 			}

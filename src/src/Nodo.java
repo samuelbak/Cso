@@ -7,16 +7,12 @@ import util.Connection;
 public class Nodo {
 	
 	public Integer nodeId;
-	public Integer potential;
-	public Integer precNode;
-	public Boolean definitive;
 	public List<Connection> connectionsList;
 	
 	public Nodo(Integer nodeId){
 		this.nodeId = nodeId;
 		this.connectionsList = new ArrayList<Connection>();
-		this.potential = Integer.MAX_VALUE;
-		this.definitive = false;
+
 	}
 	
 	public boolean addNodeConnection(Integer nodeId, Integer weight){
@@ -34,18 +30,10 @@ public class Nodo {
 		}
 		return -1;
 	}
-	@Override
-	public Nodo clone(){
-		Nodo ret = new Nodo(this.nodeId);
-		ret.potential = this.potential;
-		ret.definitive = this.definitive;
-		ret.connectionsList = this.connectionsList; 
-		return ret;
-		
-	}
+
 	@Override
 	public String toString(){
-		String obj = "[nodeId: "+this.nodeId+", Potential: "+this.potential+", Definitive: "+this.definitive+"]";
+		String obj = "[nodeId: "+this.nodeId+"]";
 		return obj;
 	}
 

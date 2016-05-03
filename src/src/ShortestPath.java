@@ -43,7 +43,7 @@ public class ShortestPath{
 			dijkstraTable[currentNode][NODE_VISITED] = 1;
 			dijkstraTable[currentNode][NODE_PRECEDENT] = previousNode;
 			
-			if (areAllNodesDefinitive())
+			if (areAllNodesDefinitive() || dijkstraTable[endNode][NODE_VISITED] == 1)
 				break;
 			
 			//nodo con peso minore
@@ -70,21 +70,7 @@ public class ShortestPath{
 		return solution.substring(4, solution.length());
 	}
 	
-	public void resetShortestPathTree(){
-		for(Nodo nodo: graph){
-			nodo.definitive = false;
-			nodo.potential = Integer.MAX_VALUE;
-		}
-	}
-	
 	private boolean areAllNodesDefinitive(){
-		/*
-		for(Nodo nodo: graph){
-			if (nodo.definitive == false)
-				return false;
-		}
-		return true;
-		*/
 		for(int i=0; i<graph.length; i++){
 			if(dijkstraTable[i][1] == 0)
 				return false;

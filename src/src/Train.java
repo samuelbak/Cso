@@ -1,22 +1,29 @@
 package src;
 
-public class Train extends Thread {
+public class Train implements Runnable {
 
 	private Integer start;
 	private Integer end;
 	private Nodo[] graph;
+	private Thread t;
+	private String threadName;
 	
-	public Train(Integer startNodeId, Integer endNodeId, Nodo[] graph){
+	public Train(Integer startNodeId, Integer endNodeId, Nodo[] graph, String threadName){
 		start 	= startNodeId;
-		end 	= endNodeId;/*
-		this.graph = new Nodo[graph.length];
-		for (int i=0; i<graph.length;i++)
-			this.graph[i] = graph[i].clone();*/
+		end 	= endNodeId;
 		this.graph = graph;
+		this.threadName = threadName;
 	}	
 	
 	public void run(){
 		ShortestPath sp = new ShortestPath(graph);
-		System.out.println(sp.dijkstra(start, end));
+		System.out.println(threadName+": "+sp.dijkstra(start, end));
+	}
+	
+	public void start(){
+		if (t==null){
+			t = new Thread(this);
+			t.start();
+		}
 	}
 }

@@ -17,21 +17,21 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Integer dimension = 8000;
+		Integer dimension = 200000;
 
 		Integer[][] matrix = Graph.createRandomMatrix(dimension, 1);
-		//Graph.printMatrix(matrix);
 		
 		Nodo[] nodi = Graph.getGraphFromMatrix(matrix);
 		Random rnd = new Random(System.currentTimeMillis());
-		Train treno1 = new Train(rnd.nextInt(dimension),rnd.nextInt(dimension),nodi);
-		Train treno2 = new Train(rnd.nextInt(dimension),rnd.nextInt(dimension),nodi);
-		Train treno3 = new Train(rnd.nextInt(dimension),rnd.nextInt(dimension),nodi);
-		Train treno4 = new Train(0,dimension-1,nodi);
-		treno1.run();
-		treno2.run();
-		treno3.run();
-		treno4.run();
-
+		Integer overload = 1;
+		Integer availableCpu = Runtime.getRuntime().availableProcessors()*overload;
+		
+		Train[] treni = new Train[availableCpu];
+		for (int i=0; i<availableCpu;i++){
+			treni[i] = new Train(rnd.nextInt(dimension),rnd.nextInt(dimension),nodi, "Treno "+(i+1));
+		}
+		for (int i=0; i<availableCpu; i++){
+			treni[i].start();
+		}
 	}
 }
