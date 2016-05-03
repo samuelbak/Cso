@@ -17,7 +17,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Integer dimension = 200000;
+		Integer dimension = 50;
 
 		Integer[][] matrix = Graph.createRandomMatrix(dimension, 1);
 		
