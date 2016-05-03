@@ -1,6 +1,6 @@
 package src;
 
-public class Train implements Runnable {
+public class Train extends Thread {
 
 	private Integer start;
 	private Integer end;
@@ -8,10 +8,11 @@ public class Train implements Runnable {
 	
 	public Train(Integer startNodeId, Integer endNodeId, Nodo[] graph){
 		start 	= startNodeId;
-		end 	= endNodeId;
+		end 	= endNodeId;/*
 		this.graph = new Nodo[graph.length];
 		for (int i=0; i<graph.length;i++)
-			this.graph[i] = graph[i].clone();	
+			this.graph[i] = graph[i].clone();*/
+		this.graph = graph;
 	}	
 	
 	public void run(){

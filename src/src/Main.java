@@ -17,9 +17,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Integer dimension = 6000;
+		Integer dimension = 8000;
 
-		Integer[][] matrix = Graph.createRandomMatrix(dimension, 3);
+		Integer[][] matrix = Graph.createRandomMatrix(dimension, 1);
 		//Graph.printMatrix(matrix);
 		
 		Nodo[] nodi = Graph.getGraphFromMatrix(matrix);
@@ -27,12 +27,11 @@ public class Main {
 		Train treno1 = new Train(rnd.nextInt(dimension),rnd.nextInt(dimension),nodi);
 		Train treno2 = new Train(rnd.nextInt(dimension),rnd.nextInt(dimension),nodi);
 		Train treno3 = new Train(rnd.nextInt(dimension),rnd.nextInt(dimension),nodi);
-		Train treno4 = new Train(rnd.nextInt(dimension),rnd.nextInt(dimension),nodi);
-		Train treno5 = new Train(rnd.nextInt(dimension),rnd.nextInt(dimension),nodi);
+		Train treno4 = new Train(0,dimension-1,nodi);
 		treno1.run();
 		treno2.run();
 		treno3.run();
 		treno4.run();
-		treno5.run();
+
 	}
 }
