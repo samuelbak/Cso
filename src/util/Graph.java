@@ -5,10 +5,6 @@ import src.Nodo;
 
 public class Graph {
 	
-	public Graph(){
-		
-	}
-	
 	public static Nodo[] createRandomNodes(Integer limit){
 		Random rnd = new Random();
 		Integer numberOfNodes = rnd.nextInt(limit);
@@ -17,6 +13,20 @@ public class Graph {
 			nodi[j] = new Nodo(j++);
 		}
 		return nodi;
+	}
+	
+	public static Integer[][] createRandomMatrix(Integer numberOfNodes, Integer maxNodeConnections){
+		Random rnd = new Random(System.currentTimeMillis());
+		Integer limit = rnd.nextInt(numberOfNodes);
+		if (limit<5)
+			limit=5;
+		Integer[][] matrix = new Integer[limit][limit];
+		
+		return matrix;
+	}
+	
+	public static Nodo[] getGraphFromMatrix(Integer[][] matrix){
+		return new Nodo[1];
 	}
 
 }

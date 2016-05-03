@@ -1,5 +1,7 @@
 package src;
 
+import util.Graph;
+
 /*
 Thread e Processi - Si realizzi, a grandi linee, un simulatore per un sistema di ricerca del tragitto più 
 breve in una rete ferroviaria. La rete ferroviaria è composta da stazioni (i nodi) e tratte (gli archi che li collegano).
@@ -13,6 +15,8 @@ public class Main {
 
 	public static void main(String[] args) {
 
+		Graph.createRandomMatrix(50, 5);
+		
 		Nodo[] nodi = new Nodo[7];
 
 		for (int j = 0; j < nodi.length; j++) {
