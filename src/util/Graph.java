@@ -1,18 +1,18 @@
 package util;
 
 import java.util.Random;
-import src.Nodo;
+import src.Node;
 
 public class Graph {
 	
-	public static Nodo[] createRandomNodes(Integer limit){
+	public static Node[] createRandomNodes(Integer limit){
 		Random rnd = new Random();
 		Integer numberOfNodes = rnd.nextInt(limit);
-		Nodo[] nodi = new Nodo[numberOfNodes];
-		for (int j = 0; j < nodi.length; j++) {
-			nodi[j] = new Nodo(j++);
+		Node[] nodes = new Node[numberOfNodes];
+		for (int j = 0; j < nodes.length; j++) {
+			nodes[j] = new Node(j++);
 		}
-		return nodi;
+		return nodes;
 	}
 	
 	public static void printMatrix(Integer[][] matrix){
@@ -49,19 +49,19 @@ public class Graph {
 		return matrix;
 	}
 	
-	public static Nodo[] getGraphFromMatrix(Integer[][] matrix){
-		Nodo[] nodi = new Nodo[matrix.length];
-		for (int i=0; i<nodi.length; i++)
-			nodi[i] = new Nodo(i);
-		for (int i=0; i<nodi.length; i++){
-			for(int j=i+1; j<nodi.length; j++){
+	public static Node[] getGraphFromMatrix(Integer[][] matrix){
+		Node[] nodes = new Node[matrix.length];
+		for (int i=0; i<nodes.length; i++)
+			nodes[i] = new Node(i);
+		for (int i=0; i<nodes.length; i++){
+			for(int j=i+1; j<nodes.length; j++){
 				if (matrix[i][j]!=null){
-					nodi[i].addNodeConnection(j, matrix[i][j]);
-					nodi[j].addNodeConnection(i, matrix[i][j]);
+					nodes[i].addNodeConnection(j, matrix[i][j]);
+					nodes[j].addNodeConnection(i, matrix[i][j]);
 				}
 			}
 		}
-		return nodi;
+		return nodes;
 	}
 
 }

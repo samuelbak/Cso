@@ -10,10 +10,10 @@ public class ShortestPath{
 	private	final Integer NODE_WEIGHT = 0;
 	private final Integer NODE_VISITED = 1;
 	private final Integer NODE_PRECEDENT = 2;
-	private Nodo[] graph;
+	private Node[] graph;
 	private Integer[][] dijkstraTable;
 	
-	public ShortestPath(Nodo[] graph){
+	public ShortestPath(Node[] graph){
 		this.graph = graph;
 	}
 	

@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import util.Connection;
 
-public class Nodo {
+public class Node {
 	
 	public Integer nodeId;
 	public List<Connection> connectionsList;
 	
-	public Nodo(Integer nodeId){
+	public Node(Integer nodeId){
 		this.nodeId = nodeId;
 		this.connectionsList = new ArrayList<Connection>();
 
