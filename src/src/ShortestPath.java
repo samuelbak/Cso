@@ -6,6 +6,10 @@ import util.Connection;
 
 public class ShortestPath{
 	
+	//ENUM-LIKE CONSTANT
+	private	final Integer NODE_WEIGHT = 0;
+	private final Integer NODE_VISITED = 1;
+	private final Integer NODE_PRECEDENT = 2;
 	private Nodo[] graph;
 	private Integer[][] dijkstraTable;
 	
@@ -14,11 +18,7 @@ public class ShortestPath{
 	}
 	
 	public String dijkstra(Integer startNode, Integer endNode){
-		//ENUM-LIKE CONSTANT
-		final Integer NODE_WEIGHT = 0;
-		final Integer NODE_VISITED = 1;
-		final Integer NODE_PRECEDENT = 2;
-		
+			
 		dijkstraTable = new Integer[graph.length][3];
 		for(int i=0;i<graph.length;i++){
 			dijkstraTable[i][NODE_WEIGHT] = Integer.MAX_VALUE;		//peso

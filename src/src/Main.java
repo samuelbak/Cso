@@ -62,14 +62,14 @@ public class Main {
 				e.printStackTrace();
 			}
 		}
-
+		System.out.println();
 		Integer[][] matrix = Graph.createRandomMatrix(dimension, connections, weight);
 		Nodo[] nodi = Graph.getGraphFromMatrix(matrix);
 		Random rnd = new Random(System.currentTimeMillis());
 
 		Train[] treni = new Train[threadNumber];
 		for (int i=0; i<threadNumber;i++){
-			treni[i] = new Train(rnd.nextInt(dimension),rnd.nextInt(dimension),nodi, "Treno "+(i+1));
+			treni[i] = new Train(rnd.nextInt(dimension),rnd.nextInt(dimension),nodi, "Train "+(i+1));
 		}
 		for (int i=0; i<threadNumber; i++){
 			treni[i].start();
