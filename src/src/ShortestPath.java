@@ -35,9 +35,9 @@ public class ShortestPath{
 			//Calcolo percorsi nodi vicini
 			List<Connection> conList = graph[currentNode].connectionsList;
 			for(Connection con: conList){
-				if((dijkstraTable[con.toNodeId][NODE_WEIGHT] > con.weigth + dijkstraTable[currentNode][NODE_WEIGHT]) 
+				if((dijkstraTable[con.toNodeId][NODE_WEIGHT] > con.weight + dijkstraTable[currentNode][NODE_WEIGHT]) 
 						&& dijkstraTable[con.toNodeId][NODE_VISITED] == 0)
-					dijkstraTable[con.toNodeId][NODE_WEIGHT] = con.weigth + dijkstraTable[currentNode][NODE_WEIGHT];
+					dijkstraTable[con.toNodeId][NODE_WEIGHT] = con.weight + dijkstraTable[currentNode][NODE_WEIGHT];
 			}
 
 			dijkstraTable[currentNode][NODE_VISITED] = 1;
@@ -55,21 +55,23 @@ public class ShortestPath{
 				}
 			}
 		}
+		
 		String solution = " -> "+endNode;
 		Integer remainingWeight = dijkstraTable[endNode][NODE_WEIGHT];
+		Integer precedentNode = endNode;
 		while (remainingWeight != 0){
-			List<Connection> conList = graph[endNode].connectionsList;
+			List<Connection> conList = graph[precedentNode].connectionsList;
 			for(Connection con: conList){
-				if(dijkstraTable[con.toNodeId][NODE_WEIGHT] == dijkstraTable[endNode][NODE_WEIGHT] - con.weigth){
+				if(dijkstraTable[con.toNodeId][NODE_WEIGHT] == dijkstraTable[precedentNode][NODE_WEIGHT] - con.weight){
 					solution = " -> "+con.toNodeId+solution;
 					remainingWeight = dijkstraTable[con.toNodeId][NODE_WEIGHT];
-					endNode = con.toNodeId;
+					precedentNode = con.toNodeId;
 				}
 			}
 		}
-		return solution.substring(4, solution.length());
+		return "\tTotal weight: "+dijkstraTable[endNode][NODE_WEIGHT]+"\t"+solution.substring(4, solution.length());
 	}
-	
+		
 	private boolean areAllNodesDefinitive(){
 		for(int i=0; i<graph.length; i++){
 			if(dijkstraTable[i][1] == 0)

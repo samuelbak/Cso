@@ -26,7 +26,7 @@ public class Nodo {
 	public Integer getNodeConnectionWeigthTo(Integer nodeId){
 		for(Connection con: connectionsList){
 			if (con.toNodeId == nodeId)
-				return con.weigth;
+				return con.weight;
 		}
 		return -1;
 	}

@@ -2,10 +2,10 @@ package util;
 
 public class Connection {
 	public Integer toNodeId;
-	public Integer weigth;
+	public Integer weight;
 	
-	public Connection(Integer toNodeId, Integer weigth){
+	public Connection(Integer toNodeId, Integer weight){
 		this.toNodeId = toNodeId;
-		this.weigth = weigth;
+		this.weight = weight;
 	}
 }

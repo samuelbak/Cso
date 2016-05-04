@@ -27,7 +27,7 @@ public class Graph {
 		}
 	}
 	
-	public static Integer[][] createRandomMatrix(final Integer numberOfNodes,final Integer maxNodeConnections){
+	public static Integer[][] createRandomMatrix(Integer numberOfNodes,Integer maxNodeConnections, Integer maxWeight){
 		Random rnd = new Random(System.currentTimeMillis());
 		Integer[][] matrix = new Integer[numberOfNodes][numberOfNodes];
 		for (int i=0;i<numberOfNodes-1; i++){
@@ -39,9 +39,8 @@ public class Graph {
 				while(true){
 					int random = rnd.ints(i+1, numberOfNodes).limit(1).findFirst().getAsInt();
 					if (matrix[i][random] == null){
-						matrix[i][random] = rnd.nextInt(9)+1;
+						matrix[i][random] = rnd.nextInt(maxWeight)+1;
 						break;
-
 					}
 				}
 			}
