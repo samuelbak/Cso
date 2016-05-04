@@ -18,6 +18,7 @@ public class Train implements Runnable {
 	public void run(){
 		ShortestPath sp = new ShortestPath(graph);
 		System.out.println(threadName+": "+sp.dijkstra(start, end));
+		return;
 	}
 	
 	public void start(){

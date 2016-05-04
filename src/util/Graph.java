@@ -1,5 +1,12 @@
 package util;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.util.Random;
 import src.Node;
 
@@ -64,4 +71,34 @@ public class Graph {
 		return nodes;
 	}
 
+	public static Integer[][] getMatrixFromFile(String textFile) throws FileNotFoundException, IOException{
+		InputStream inFile = new FileInputStream(textFile);
+		InputStreamReader streamerReader = new InputStreamReader(inFile, Charset.forName("UTF-8"));
+	    BufferedReader fileBufferedReader = new BufferedReader(streamerReader);
+	    String row = fileBufferedReader.readLine();
+	    row = row.substring(1, row.length());
+	    String[] elementArray = row.split("-");
+	    Integer[][] matrix = new Integer[elementArray.length][elementArray.length];
+	    for (int i=0;i<matrix.length;i++){
+	    	if(elementArray[i].equals(" "))
+	    		matrix[0][i] = null;
+	    	else
+	    		matrix[0][i] = Integer.valueOf(elementArray[i]);
+	    }
+
+	    for(int i=1;i<matrix.length;i++){
+	    	row = fileBufferedReader.readLine();
+		    row = row.substring(1, row.length());
+		    elementArray = row.split("-");
+	    	for (int j=0;j<matrix.length;j++){
+	    		if(elementArray[j].equals(" "))
+	    			matrix[i][j] = null;
+	    		else
+	    			matrix[i][j] = Integer.valueOf(elementArray[j]);
+	    	}
+	    }
+	    fileBufferedReader.close();
+	    return matrix;
+	}
+	
 }
