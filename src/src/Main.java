@@ -19,7 +19,6 @@ public class Main {
 			if (consoleIn.readLine().equals("y"))
 				testMatrix="y";
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
